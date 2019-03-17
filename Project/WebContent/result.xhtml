@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template = "index.xhtml">
+
+      
+      <ui:define name = "content">
+      <div class="form_container">
+      <h:form class="smart-green">
+      <h1>Rent Movies 
+	        <span>Movies you Select...</span>
+	        </h1>
+      
+      <h4>
+      <ui:repeat value = "#{movieData.data}" var = "s">		
+         #{s}<br></br> 
+      </ui:repeat>
+      </h4>
+     <br></br>
+     
+     <h1>
+      <h:outputText value="No Of Movie = "></h:outputText>
+      <h:outputText value="#{movieData.count}" />
+      </h1>
+      
+     
+      <h:outputText value="Total Price = $ "></h:outputText>
+      <h:outputText value="#{movieData.price}" /><br></br>
+      
+      
+      <h5>
+      Credit Card Num: 
+      <h:inputText id="nameInput" style="width: 250px" label="creditCard" required = "true" a:placeholder="Visa Only eg:41xxxxxxxxxxxxxx">
+      <f:validateRegex for ="nameInput"  pattern="^4[0-9]{12}(?:[0-9]{3})?$"  requiredMessage="A 16-digit credit card number is required." />
+      </h:inputText><br></br>
+      <h:message showSummary="true" showDetail="false" for="nameInput" style = "color:red" ></h:message>
+      </h5>
+      <br></br>
+      <h:commandButton value = "submit" action = "resultPayment" class="button"/>
+      </h:form>
+      </div>
+       
+      </ui:define>
+      
+      </ui:composition>
+      
+</body> 
+</html>

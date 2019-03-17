@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template = "index.xhtml">      
+         <ui:define name = "content">
+         <div class="form_container">
+            
+      <h:form class="smart-green">
+      <h1>Rent Movies 
+	        <span>Please select movies you like...</span>
+	        </h1> 
+      <label>
+	        <span>Movie List >> </span>
+         <h:selectManyListbox id="movie" value = "#{movieData.data}" style="width: 350px; height= 250px; background-color: #b0d4de;">
+            <f:selectItem itemValue = "Guardians of the Galaxy Vol. 2" itemLabel = "Guardians of the Galaxy Vol. 2" />
+            <f:selectItem itemValue = "Logan" itemLabel = "Logan" />
+            <f:selectItem itemValue = "The Fate of the Furious" itemLabel = "The Fate of the Furious" />
+            <f:selectItem itemValue = "Pirates of the Caribbean: Dead Men Tell No Tales" itemLabel = "Pirates of the Caribbean: Dead Men Tell No Tales" />
+            <f:selectItem itemValue = "Baywatch" itemLabel = "Baywatch" />
+         </h:selectManyListbox >
+         </label>
+         <br/><br/>
+         <h:commandButton value = "Submit" action = "result" class="button">
+         </h:commandButton>
+      </h:form> 
+      </div>	
+         </ui:define> 
+      </ui:composition>
+</body> 
+</html>

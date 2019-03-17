@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template = "index.xhtml">
+        			
+         
+         <ui:define name = "content">
+     <div class="form_container">
+     <h2>Welcome to our Web site</h2>
+      
+     <div>
+     <h2>
+     <h:outputText id="output_ajax" value="#{user.printMessage}"  />
+     </h2>
+     </div>
+     
+     
+      
+      <h:form class="smart-green">
+      
+     
+         <h1>Online Registration 
+	        <span>Please Registration here...</span>
+	        </h1>
+	        
+         <h:outputText  value="First Name "></h:outputText>
+         <h:inputText id="fname" value="#{user.firstName}" required = "true" style="width: 250px">        
+         </h:inputText>
+         <h:message showSummary="true" showDetail="false" for="fname" style = "color:red" ></h:message>
+        
+         <label>
+          <h:outputText value="Last Name "></h:outputText>
+         <h:inputText id="lname" value="#{user.lastName}" required = "true" style="width: 250px">
+         </h:inputText>
+        <h:message showSummary="true" showDetail="false" for="lname" style = "color:red" ></h:message>
+        </label>
+            
+         <h:outputText value="  Age" style="padding-right: 65px;"></h:outputText>
+         <h:inputText id="age" value="#{user.age}" required = "true" style="width: 250px;" >
+         <f:validateRegex pattern="[0-9]" />
+         </h:inputText> 
+        <h:message showSummary="true" showDetail="false" for="age" style = "color:red" ></h:message>
+         <br/><br/>
+         <h:commandButton value = "Submit" class="button">
+         <f:ajax execute="fname lname" render="output_ajax"></f:ajax>
+         </h:commandButton>
+    
+    
+     </h:form>
+     </div>
+      	
+         </ui:define> 
+         
+         			
+      </ui:composition>
+</body> 
+</html>
